@@ -83,4 +83,6 @@ function operate(a, b, c){
 console.log(operate(1,2, "+"))
 // create a function that displays the numbers typed on the text box when typed
 
+
+
 // wire the functions to the html calculator
