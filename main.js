@@ -61,11 +61,16 @@ function operate(a, b, c){
 }
 
 console.log(operate(1,2, "+"))
+
+
 // create a function that displays the numbers typed on the text box when typed
 
 const displayScreen = document.getElementById("displayNum");
 const buttons = document.querySelectorAll(".numButtons");
 const length = buttons.length;
+
+const opButtons = document.querySelectorAll(".operatorButtons")
+const opLength = opButtons.length;
 
 for (let i = 0; i < length; i++){
     buttons[i].addEventListener("click", handle);
@@ -76,6 +81,16 @@ function handle (event) {
     const value = event.target.value;
     displayScreen.value += value;
 }
+
+/*for (let i = 0; i < length; i++){
+    opButtons[i].addEventListener("click", handleOP);
+
+}
+
+function handleOP (event) {
+    const value = event.target.value;
+    displayScreen.value += value;
+}*/
 
 //clear function
 
