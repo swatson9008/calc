@@ -37,26 +37,6 @@ console.log(divideOP(30,2));
 // create the operate function to take the operator and two numbers and call one of the math functions
 
 
-/*const mathOperations = {
-    "+": function(x, y){
-        return x + y;
-    },
-    "-": function(x, y){
-        return x - y;
-    },
-    "*": function(x, y){
-        return x * y;
-    },
-    "/": function(x, y){
-        return x / y;
-    },
-
-}
-
-function operate(x, y, z)*/
-
-/*let operator = "x"*/
-
 function operate(a, b, c){
 
     switch(c){
@@ -83,6 +63,71 @@ function operate(a, b, c){
 console.log(operate(1,2, "+"))
 // create a function that displays the numbers typed on the text box when typed
 
+const displayScreen = document.getElementById("displayNum");
+const buttons = document.querySelectorAll(".numButtons");
+const length = buttons.length;
 
+for (let i = 0; i < length; i++){
+    buttons[i].addEventListener("click", handle);
+
+}
+
+function handle (event) {
+    const value = event.target.value;
+    displayScreen.value += value;
+}
+
+//clear function
+
+ClearS = document.getElementById("ClearScreen");
+
+ClearS.addEventListener("click", ClearScreens);
+
+function ClearScreens(){
+    displayScreen.value = "";
+}
+
+/*for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", addNums(){
+        displayScreen.value += this.value;
+    });
+}
+
+
+
+
+/*
+
+const buttons1 = document.getElementById("No1");
+
+const buttons2 = document.getElementById("No2");
+
+buttons1.addEventListener("click", e=> {
+    e.preventDefault();
+    displayScreen.value = e.target.value;}
+    );
+
+buttons2.addEventListener("click", e=> {
+        e.preventDefault();
+        displayScreen.value = e.target.value;}
+        );
+
+/*for (let i=0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", e=> {
+        e.preventDefault();
+        displayScreen.value = e.target.value;
+    })
+}
+
+/*No1 = document.getElementById("No1").addEventListener("click", () => {
+    displayScreen.insertAdjacentText('afterbegin', 1);
+});
+
+
+/*function displayInput(x){
+displayScreen.insertAdjacentHTML(afterbegin.value, x);
+     };
 
 // wire the functions to the html calculator
+
+*/
