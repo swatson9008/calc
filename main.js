@@ -72,35 +72,59 @@ const length = buttons.length;
 const opButtons = document.querySelectorAll(".operatorButtons")
 const opLength = opButtons.length;
 
+let calcStorage = [];
+
 for (let i = 0; i < length; i++){
+    
     buttons[i].addEventListener("click", handle);
+    buttons[i].addEventListener("keyup", handle);
+    
 
 }
 
 function handle (event) {
     const value = event.target.value;
     displayScreen.value += value;
+    calcStorage.push(event.target.value);
+    console.log(calcStorage);
 }
 
-/*for (let i = 0; i < length; i++){
+
+//for operators
+
+for (let i = 0; i < length; i++){
+    
     opButtons[i].addEventListener("click", handleOP);
+    opButtons[i].addEventListener("keyup", handleOP);
 
 }
 
 function handleOP (event) {
     const value = event.target.value;
-    displayScreen.value += value;
-}*/
+        if (displayScreen.value = ""){
+            alert("enter a number first")
+        }
+        else {
+    displayScreen.value += value
+    calcStorage.push(event.target.value);
+    console.log(calcStorage);};
+}
 
 //clear function
 
 ClearS = document.getElementById("ClearScreen");
-
 ClearS.addEventListener("click", ClearScreens);
+ClearS.addEventListener("keyup", ClearScreens);
 
 function ClearScreens(){
     displayScreen.value = "";
+    calcStorage = "";
 }
+
+// wire the functions to the html calculator
+
+
+
 
 /*for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", addNums(){
@@ -143,6 +167,6 @@ buttons2.addEventListener("click", e=> {
 displayScreen.insertAdjacentHTML(afterbegin.value, x);
      };
 
-// wire the functions to the html calculator
+
 
 */
