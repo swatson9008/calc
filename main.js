@@ -69,10 +69,15 @@ const displayScreen = document.getElementById("displayNum");
 const buttons = document.querySelectorAll(".numButtons");
 const length = buttons.length;
 
-const opButtons = document.querySelectorAll(".operatorButtons")
-const opLength = opButtons.length;
+/*const opButtons = document.querySelectorAll(".operatorButtons")
+const opLength = opButtons.length;*/
 
-let calcStorage = [];
+let calcStorage = {
+    firstNum: "",
+    operatorS: "",
+    secondNum: "",
+
+};
 
 for (let i = 0; i < length; i++){
     
@@ -84,22 +89,24 @@ for (let i = 0; i < length; i++){
 
 function handle (event) {
     const value = event.target.value;
+    /*if (isNaN(value)){}*/
     displayScreen.value += value;
-    calcStorage.push(event.target.value);
+    calcStorage.firstNum += value;
+    /*calcStorage.firstNum.push(event.target.value);*/
     console.log(calcStorage);
 }
 
 
 //for operators
 
-for (let i = 0; i < length; i++){
+/*for (let i = 0; i < length; i++){
     
     opButtons[i].addEventListener("click", handleOP);
     opButtons[i].addEventListener("keyup", handleOP);
 
-}
+}*/
 
-function handleOP (event) {
+/*function handleOP (event) {
     const value = event.target.value;
         if (displayScreen.value = ""){
             alert("enter a number first")
@@ -108,7 +115,7 @@ function handleOP (event) {
     displayScreen.value += value
     calcStorage.push(event.target.value);
     console.log(calcStorage);};
-}
+}*/
 
 //clear function
 
@@ -118,10 +125,27 @@ ClearS.addEventListener("keyup", ClearScreens);
 
 function ClearScreens(){
     displayScreen.value = "";
-    calcStorage = "";
+    calcStorage = {
+        firstNum: "",
+        operatorS: "",
+        secondNum: "",
+    };
 }
 
-// wire the functions to the html calculator
+//calculate
+
+calcB = document.getElementById("CalcS");
+
+calcB.addEventListener("click", calcArray);
+
+function calcArray(){
+    
+    /*calcStorage[0] = a;
+    calcStorage[1] = c;
+    calcStorage[2] = b;
+    operate(a, b, c);
+    console.log(output);*/
+};
 
 
 
