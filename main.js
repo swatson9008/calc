@@ -36,6 +36,7 @@ function divideOP(a, b){
 console.log(divideOP(30,2));
 // create the operate function to take the operator and two numbers and call one of the math functions
 
+let output;
 
 function operate(a, b, c){
 
@@ -46,7 +47,7 @@ function operate(a, b, c){
         case "-":
             output = subOP(a, b);
             break;
-        case "x":
+        case "*":
             output = multiOP(a, b);
             break;
         case "/":
@@ -60,7 +61,7 @@ function operate(a, b, c){
     return output;
 }
 
-console.log(operate(1,2, "+"))
+console.log(operate(1, 3, "+"))
 
 
 // create a function that displays the numbers typed on the text box when typed
@@ -77,6 +78,8 @@ let calcStorage = {
 
 
 };
+
+
 
 for (let i = 0; i < length; i++){
     
@@ -98,7 +101,6 @@ function handle (event) {
         calcStorage.operatorS += value;
     break;
         default:
-            parseInt(value);
             if (calcStorage.operatorS === ""){calcStorage.firstNum += value;}
             else {calcStorage.secondNum += value;}
             /*if (calcStorage.operatorS == "+" || "-" || "*" || "/"){calcStorage.secondNum += value;}
@@ -129,13 +131,34 @@ function ClearScreens(){
 //calculate
 
 calcB = document.getElementById("CalcS");
-calcB.addEventListener("click", calcArray());
+calcB.addEventListener("click", parseNo);
+
+function parseNo(){
+    let a = parseInt(calcStorage.firstNum);
+    let b = parseInt(calcStorage.secondNum);
+    operate(a, b, calcStorage.operatorS);
+    displayScreen.value = output;
+    console.log(output);
+    
+}
+
+
+
+/*function calcArray() {
+  console.log("hi");
+  /*console.log(calcStorage);
+  console.log(calcStorage.firstNum);
+  // console.log(operate());
+
+/*calcB.addEventListener("click", (e) => 
+e.preventDefault(), calcArray());
 
 function calcArray(){
     
-    /*operate(calcStorage.firstNum, calcStorage.operatorS, calcStorage.secondNum);
-    console.log(output);*/
-};
+    console.log(calcStorage.firstNum);
+};*/
+
+
 
 /*const opButtons = document.querySelectorAll(".operatorButtons")
 const opLength = opButtons.length;*/
