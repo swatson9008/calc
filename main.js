@@ -66,16 +66,15 @@ console.log(operate(1,2, "+"))
 // create a function that displays the numbers typed on the text box when typed
 
 const displayScreen = document.getElementById("displayNum");
-const buttons = document.querySelectorAll(".numButtons");
+const buttons = document.getElementsByClassName("numbutton");
 const length = buttons.length;
 
-/*const opButtons = document.querySelectorAll(".operatorButtons")
-const opLength = opButtons.length;*/
 
 let calcStorage = {
     firstNum: "",
     operatorS: "",
     secondNum: "",
+
 
 };
 
@@ -88,14 +87,58 @@ for (let i = 0; i < length; i++){
 }
 
 function handle (event) {
-    const value = event.target.value;
-    /*if (isNaN(value)){}*/
+    let value = event.target.value;
+    
+    switch (value){
+    case '+':
+    case '-':
+    case '*':
+    case '/':
+    case '=':
+        calcStorage.operatorS += value;
+    break;
+        default:
+            parseInt(value);
+            if (calcStorage.operatorS === ""){calcStorage.firstNum += value;}
+            else {calcStorage.secondNum += value;}
+            /*if (calcStorage.operatorS == "+" || "-" || "*" || "/"){calcStorage.secondNum += value;}
+            else {calcStorage.firstNum += value;} */
+    }
+    
+    /*if (value === "+" || "-" || "*" || "/"){calcStorage.operatorS += value;}
+    else if (calcStorage.operatorS === "+" || "-" || "*" || "/"){calcStorage.secondNum += value;}
+    /*else {calcStorage.firstNum += value;}*/
     displayScreen.value += value;
-    calcStorage.firstNum += value;
-    /*calcStorage.firstNum.push(event.target.value);*/
     console.log(calcStorage);
 }
 
+
+ClearS = document.getElementById("ClearScreen");
+ClearS.addEventListener("click", ClearScreens);
+ClearS.addEventListener("keyup", ClearScreens);
+
+function ClearScreens(){
+    displayScreen.value = "";
+    calcStorage = {
+        firstNum: "",
+        operatorS: "",
+        secondNum: "",
+    };
+}
+
+//calculate
+
+calcB = document.getElementById("CalcS");
+calcB.addEventListener("click", calcArray());
+
+function calcArray(){
+    
+    /*operate(calcStorage.firstNum, calcStorage.operatorS, calcStorage.secondNum);
+    console.log(output);*/
+};
+
+/*const opButtons = document.querySelectorAll(".operatorButtons")
+const opLength = opButtons.length;*/
 
 //for operators
 
@@ -118,37 +161,6 @@ function handle (event) {
 }*/
 
 //clear function
-
-ClearS = document.getElementById("ClearScreen");
-ClearS.addEventListener("click", ClearScreens);
-ClearS.addEventListener("keyup", ClearScreens);
-
-function ClearScreens(){
-    displayScreen.value = "";
-    calcStorage = {
-        firstNum: "",
-        operatorS: "",
-        secondNum: "",
-    };
-}
-
-//calculate
-
-calcB = document.getElementById("CalcS");
-
-calcB.addEventListener("click", calcArray);
-
-function calcArray(){
-    
-    /*calcStorage[0] = a;
-    calcStorage[1] = c;
-    calcStorage[2] = b;
-    operate(a, b, c);
-    console.log(output);*/
-};
-
-
-
 
 /*for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", addNums(){
