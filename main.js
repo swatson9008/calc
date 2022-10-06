@@ -131,9 +131,9 @@ function ClearScreens(){
 //calculate
 
 calcB = document.getElementById("CalcS");
-calcB.addEventListener("click", parseNo);
+calcB.addEventListener("click", calcArray);
 
-function parseNo(){
+function calcArray(){
     let a = parseInt(calcStorage.firstNum);
     let b = parseInt(calcStorage.secondNum);
     operate(a, b, calcStorage.operatorS);
