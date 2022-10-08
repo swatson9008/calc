@@ -61,7 +61,7 @@ function operate(a, b, c){
             break;
         
     }
-    outputS = parseInt(output);
+    outputS = Math.floor(output * 100) / 100;
     return outputS;
 }
 
