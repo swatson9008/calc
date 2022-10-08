@@ -37,6 +37,7 @@ console.log(divideOP(30,2));
 // create the operate function to take the operator and two numbers and call one of the math functions
 
 let output;
+let outputFinal;
 
 function operate(a, b, c){
 
@@ -137,12 +138,16 @@ function calcArray(){
     let a = parseInt(calcStorage.firstNum);
     let b = parseInt(calcStorage.secondNum);
     operate(a, b, calcStorage.operatorS);
-    displayScreen.value = output;
+    displayScreen.value = ParseFloat(output, 2);
     console.log(output);
     
-}
+};
 
-
+function ParseFloat(str,val) {
+    str = str.toString();
+    str = str.slice(0, (str.indexOf(".")) + val + 1); 
+    return Number(str);   
+};
 
 /*function calcArray() {
   console.log("hi");
@@ -228,4 +233,4 @@ displayScreen.insertAdjacentHTML(afterbegin.value, x);
 
 
 
-*/
+*/ 
