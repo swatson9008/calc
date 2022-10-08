@@ -54,6 +54,7 @@ function operate(a, b, c){
         case "/":
             if (b === 0){
                 alert("You cant do that")
+                ClearScreens
             } else {
             output = divideOP(a, b);}
             break;
@@ -62,7 +63,7 @@ function operate(a, b, c){
     return output;
 }
 
-console.log(operate(1, 3, "+"))
+/*console.log(operate(1, 3, "+"))*/
 
 
 // create a function that displays the numbers typed on the text box when typed
@@ -74,9 +75,10 @@ const length = buttons.length;
 
 let calcStorage = {
     firstNum: "",
-    operatorS: "",
+    firstOP: "",
     secondNum: "",
-
+    secondOP: "",
+    thirdNum: "",
 
 };
 
@@ -99,11 +101,13 @@ function handle (event) {
     case '*':
     case '/':
     case '=':
-        calcStorage.operatorS += value;
+        if (calcStorage.firstOP === ""){calcStorage.firstOP += value;}
+        else {calcStorage.secondOP += value;}
     break;
         default:
-            if (calcStorage.operatorS === ""){calcStorage.firstNum += value;}
-            else {calcStorage.secondNum += value;}
+            if (calcStorage.firstOP === ""){calcStorage.firstNum += value;}
+            else if (calcStorage.secondOP === ""){calcStorage.secondNum += value;}
+            else {calcStorage.thirdNum += value;}
             /*if (calcStorage.operatorS == "+" || "-" || "*" || "/"){calcStorage.secondNum += value;}
             else {calcStorage.firstNum += value;} */
     }
@@ -124,8 +128,10 @@ function ClearScreens(){
     displayScreen.value = "";
     calcStorage = {
         firstNum: "",
-        operatorS: "",
+        firstOP: "",
         secondNum: "",
+        secondOP: "",
+        thirdNum: "",
     };
 }
 
@@ -134,16 +140,44 @@ function ClearScreens(){
 calcB = document.getElementById("CalcS");
 calcB.addEventListener("click", calcArray);
 
+
+let firstOutput;
+let secondOutput;
+
 function calcArray(){
-    let a = parseInt(calcStorage.firstNum);
-    let b = parseInt(calcStorage.secondNum);
-    operate(a, b, calcStorage.operatorS);
-    displayScreen.value = ParseFloat(output, 2);
-    console.log(output);
+    let firstNo = parseInt(calcStorage.firstNum);
+    let secondNo = parseInt(calcStorage.secondNum);
+    let thirdNo = parseInt(calcStorage.thirdNum);
+    let firstOPs = calcStorage.firstOP;
+    let secondOPs = calcStorage.secondOP;
+    if (firstOPs = "*" || "/"){
+        /*let a = firstNo;
+        let b = secondNo;
+        let c = firstOPs;*/
+        firstOutput = operate (firstNo, secondNo, firstOPs);
+        secondOutput = operate (firstOutput, thirdNo, secondOPs);
+        displayScreen.value = secondOutput;
+        console.log(secondOutput);
+    }
+    else if (secondOPs = "*" || "/"){
+        firstOutput = operate (secondNo, thirdNum, secondOPs);
+        secondOutput = operate (firstNum, firstOutput, firstOPs);
+        displayScreen.value = secondOutput;
+        console.log(secondOutput);
+    }
+    else {
+        firstOutput = operate (firstNo, secondNo, firstOPs);
+        secondOutput = operate (firstOutput, thirdNo, secondOPs);
+        displayScreen.value = secondOutput;
+        console.log(secondOutput);
+    }
+    /*operate(a, b, calcStorage.firstOP);*/
+    /*displayScreen.value = ParseFloat(finalOutput, 2);
+    console.log(finalOutput);*/
     
 };
 
-function ParseFloat(str,val) {
+/*function ParseFloat(str,val) {
     str = str.toString();
     str = str.slice(0, (str.indexOf(".")) + val + 1); 
     return Number(str);   
