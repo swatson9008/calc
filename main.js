@@ -1,6 +1,97 @@
 
-// write functions that can add, subtract, multiply and divide from the console log
+/// Variables 
 
+const displayScreen = document.getElementById("displayNum");
+const buttons = document.getElementsByClassName("numbutton");
+const length = buttons.length;
+
+let firstOutput;
+let secondOutput;
+
+let output;
+let outputS;
+let outputFinal;
+let outputF;
+
+///object for numbers and operators
+
+let calcStorage = {
+    firstNum: "",
+    firstOP: "",
+    secondNum: "",
+    secondOP: "",
+
+};
+
+//calculate listeners
+
+calcB = document.getElementById("CalcS");
+calcB.addEventListener("click", calcArray);
+
+
+///loop for button listeners
+
+for (let i = 0; i < length; i++){
+    
+    buttons[i].addEventListener("click", handle);
+    buttons[i].addEventListener("keyup", handle);
+    
+
+}
+
+//clear screen listeners
+
+ClearS = document.getElementById("ClearScreen");
+ClearS.addEventListener("click", ClearScreens);
+ClearS.addEventListener("keyup", ClearScreens);
+
+
+
+
+function handle (event) {
+    let value = event.target.value;
+    
+    switch (value){
+    case '+':
+    case '-':
+    case '*':
+    case '/':
+    case '=':
+        if (calcStorage.firstOP === ""){calcStorage.firstOP += value;}
+        else {calcStorage.secondOP += value;
+        calcArray();
+        calcStorage.firstOP = value;
+        calcStorage.secondOP = "";
+        calcStorage.secondNum = "";
+        calcStorage.firstNum = outputS;
+        }
+    break;
+        default:
+            if (calcStorage.firstOP === ""){calcStorage.firstNum += value;}
+            else {calcStorage.secondNum += value;}
+
+    }
+
+    displayScreen.value += value;
+    console.log(calcStorage);
+}
+
+
+function calcArray(){
+    let firstNo = parseInt(calcStorage.firstNum);
+    let secondNo = parseInt(calcStorage.secondNum);
+    let firstOPs = calcStorage.firstOP;
+    
+    operate(firstNo, secondNo, firstOPs);
+    console.log(outputS);
+
+}
+
+function ParseFloat(str,val) {
+    str = str.toString();
+    str = str.slice(0, (str.indexOf(".")) + val + 1); 
+    return Number(str);   
+};
 
 // addition
 function addOP(a, b){
@@ -34,11 +125,7 @@ function divideOP(a, b){
 };
 
 console.log(divideOP(30,2));
-// create the operate function to take the operator and two numbers and call one of the math functions
 
-let output;
-let outputS;
-let outputFinal;
 
 function operate(a, b, c){
 
@@ -61,38 +148,13 @@ function operate(a, b, c){
             break;
         
     }
-    outputS = Math.floor(output * 100) / 100;
+    outputF = Math.floor(output * 100) / 100;
+    outputS = outputF.toString();
     return outputS;
 }
 
-/*console.log(operate(1, 3, "+"))*/
 
-
-// create a function that displays the numbers typed on the text box when typed
-
-const displayScreen = document.getElementById("displayNum");
-const buttons = document.getElementsByClassName("numbutton");
-const length = buttons.length;
-
-
-let calcStorage = {
-    firstNum: "",
-    firstOP: "",
-    secondNum: "",
-    secondOP: "",
-    thirdNum: "",
-
-};
-
-
-
-for (let i = 0; i < length; i++){
-    
-    buttons[i].addEventListener("click", handle);
-    buttons[i].addEventListener("keyup", handle);
-    
-
-}
+/*
 
 function handle (event) {
     let value = event.target.value;
@@ -111,40 +173,16 @@ function handle (event) {
             else if (calcStorage.secondOP === ""){calcStorage.secondNum += value;}
             else {calcStorage.thirdNum += value;}
             /*if (calcStorage.operatorS == "+" || "-" || "*" || "/"){calcStorage.secondNum += value;}
-            else {calcStorage.firstNum += value;} */
+            else {calcStorage.firstNum += value;} */ /*
+        }
+    
+        /*if (value === "+" || "-" || "*" || "/"){calcStorage.operatorS += value;}
+        else if (calcStorage.operatorS === "+" || "-" || "*" || "/"){calcStorage.secondNum += value;}
+        /*else {calcStorage.firstNum += value;}
+        displayScreen.value += value;
+        console.log(calcStorage);
     }
     
-    /*if (value === "+" || "-" || "*" || "/"){calcStorage.operatorS += value;}
-    else if (calcStorage.operatorS === "+" || "-" || "*" || "/"){calcStorage.secondNum += value;}
-    /*else {calcStorage.firstNum += value;}*/
-    displayScreen.value += value;
-    console.log(calcStorage);
-}
-
-
-ClearS = document.getElementById("ClearScreen");
-ClearS.addEventListener("click", ClearScreens);
-ClearS.addEventListener("keyup", ClearScreens);
-
-function ClearScreens(){
-    displayScreen.value = "";
-    calcStorage = {
-        firstNum: "",
-        firstOP: "",
-        secondNum: "",
-        secondOP: "",
-        thirdNum: "",
-    };
-}
-
-//calculate
-
-calcB = document.getElementById("CalcS");
-calcB.addEventListener("click", calcArray);
-
-
-let firstOutput;
-let secondOutput;
 
 function calcArray(){
     let firstNo = parseInt(calcStorage.firstNum);
@@ -180,13 +218,8 @@ function calcArray(){
     /*displayScreen.value = ParseFloat(finalOutput, 2);
     console.log(finalOutput);*/
     
-};
 
-function ParseFloat(str,val) {
-    str = str.toString();
-    str = str.slice(0, (str.indexOf(".")) + val + 1); 
-    return Number(str);   
-};
+
 
 /*function calcArray() {
   console.log("hi");
