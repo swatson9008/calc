@@ -57,22 +57,26 @@ function handle (event) {
     case '*':
     case '/':
     case '=':
-        if (calcStorage.firstOP === ""){calcStorage.firstOP += value;}
+        if (calcStorage.firstOP === ""){calcStorage.firstOP += value;
+            displayScreen.value += value;}
         else {calcStorage.secondOP += value;
         calcArray();
         calcStorage.firstOP = value;
         calcStorage.secondOP = "";
         calcStorage.secondNum = "";
         calcStorage.firstNum = outputS;
+        displayScreen.value += value;
         }
     break;
         default:
-            if (calcStorage.firstOP === ""){calcStorage.firstNum += value;}
-            else {calcStorage.secondNum += value;}
+            if (calcStorage.firstOP === ""){calcStorage.firstNum += value;
+                displayScreen.value += value;
+            }
+            else {calcStorage.secondNum += value;
+                displayScreen.value += value;}
 
     }
 
-    displayScreen.value += value;
     console.log(calcStorage);
 }
 
@@ -86,6 +90,8 @@ function calcArray(){
     console.log(outputS);
 
 }
+
+///parsing floating numbers
 
 function ParseFloat(str,val) {
     str = str.toString();
@@ -148,11 +154,19 @@ function operate(a, b, c){
             break;
         
     }
-    outputF = Math.floor(output * 100) / 100;
-    outputS = outputF.toString();
+    outputS = Math.floor(output * 100) / 100;
     return outputS;
 }
 
+function ClearScreens(){
+    displayScreen.value = "";
+    calcStorage = {
+        firstNum: "",
+        firstOP: "",
+        secondNum: "",
+        secondOP: "",
+    };
+}
 
 /*
 
