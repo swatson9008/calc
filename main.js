@@ -77,8 +77,8 @@ function handle (event) {
 
 
 function calcArray (){
-    let firstNo = parseInt(calcStorage.firstNum);
-    let secondNo = parseInt(calcStorage.secondNum);
+    let firstNo = parseFloat(calcStorage.firstNum);
+    let secondNo = parseFloat(calcStorage.secondNum);
     let firstOPs = calcStorage.firstOP;
     
     if (firstNo === "" || secondNo === "" || firstOPs === ""){
