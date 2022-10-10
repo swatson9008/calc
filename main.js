@@ -61,11 +61,6 @@ function handle (event) {
             displayScreen.value += value;}
         else {calcStorage.secondOP += value;
         calcArray();
-        calcStorage.firstOP = value;
-        calcStorage.secondOP = "";
-        calcStorage.secondNum = "";
-        calcStorage.firstNum = outputS;
-        displayScreen.value += value;
         }
     break;
         default:
@@ -81,12 +76,33 @@ function handle (event) {
 }
 
 
-function calcArray(){
+function calcArray (){
     let firstNo = parseInt(calcStorage.firstNum);
     let secondNo = parseInt(calcStorage.secondNum);
     let firstOPs = calcStorage.firstOP;
     
-    operate(firstNo, secondNo, firstOPs);
+    if (firstNo === "" || secondNo === "" || firstOPs === ""){
+        alert("please enter two numbers and an operator");
+    }
+    else if (calcStorage.secondOP === ""){
+        operate(firstNo, secondNo, firstOPs);
+        calcStorage.firstOP = "";
+        calcStorage.secondOP = "";
+        calcStorage.secondNum = "";
+        outputF = outputS.toString();
+        calcStorage.firstNum = outputF;
+        displayScreen.value = outputF;
+        displayScreen.value += calcStorage.firstOP;
+
+    }
+    else {operate(firstNo, secondNo, firstOPs);
+        calcStorage.firstOP = calcStorage.secondOP;
+        calcStorage.secondOP = "";
+        calcStorage.secondNum = "";
+        outputF = outputS.toString();
+        calcStorage.firstNum = outputF;
+        displayScreen.value = outputF;
+        displayScreen.value += calcStorage.firstOP;}
     console.log(outputS);
 
 }
