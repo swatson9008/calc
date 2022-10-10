@@ -56,12 +56,18 @@ function handle (event) {
     case '-':
     case '*':
     case '/':
-    case '=':
         if (calcStorage.firstOP === ""){calcStorage.firstOP += value;
             displayScreen.value += value;}
         else {calcStorage.secondOP += value;
         calcArray();
         }
+    break;
+    case '.':
+        if (calcStorage.firstNum.includes(".") || calcStorage.secondNum.includes(".")){
+            alert("do not enter multiple decimals")
+        }
+        else if (calcStorage.firstOP === ""){calcStorage.firstNum += value; displayScreen.value += value;}
+        else{calcStorage.secondNum += value; displayScreen.value += value;}
     break;
         default:
             if (calcStorage.firstOP === ""){calcStorage.firstNum += value;
