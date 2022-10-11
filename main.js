@@ -54,11 +54,25 @@ function handle (event) {
     switch (value){
     case '+':
     case '-':
-    case '*':
-    case '/':
         if (calcStorage.firstOP === ""){calcStorage.firstOP += value;
             displayScreen.value += value;}
         else {calcStorage.secondOP += value;
+        calcArray();
+        }
+    break;
+    case 'x':
+        value = '*';
+        if (calcStorage.firstOP === ""){calcStorage.firstOP += value;
+            displayScreen.value += 'x';}
+        else {calcStorage.secondOP += 'x';
+        calcArray();
+        }
+    break;
+    case '÷':
+        value = '/';
+        if (calcStorage.firstOP === ""){calcStorage.firstOP += value;
+            displayScreen.value += "÷";}
+        else {calcStorage.secondOP += "÷";
         calcArray();
         }
     break;
