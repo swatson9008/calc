@@ -63,8 +63,11 @@ function handle (event) {
         }
     break;
     case '.':
-        if (calcStorage.firstNum.includes(".") || calcStorage.secondNum.includes(".")){
-            alert("do not enter multiple decimals")
+        if ((calcStorage.firstOP === "") && (calcStorage.firstNum.includes("."))){
+            alert("do not enter multiple decimals per number");
+        }
+        else if ((calcStorage.firstOP === "+" || "-" || "*" || "/") && (calcStorage.secondNum.includes("."))){
+            alert("do not enter multiple decimals per number");
         }
         else if (calcStorage.firstOP === ""){calcStorage.firstNum += value; displayScreen.value += value;}
         else{calcStorage.secondNum += value; displayScreen.value += value;}
