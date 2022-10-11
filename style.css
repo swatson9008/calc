@@ -25,6 +25,17 @@ text-align: center;
     
 }
 
+input[type=button] {
+    background-color: #3D3D3D;
+    color: azure;
+    
+}
+
+input[type=button]:hover {
+    background-color: aliceblue;
+    color: #3D3D3D;
+}
+
 #displayNum {
     margin-top: 8px;
     margin-right: 8px;
