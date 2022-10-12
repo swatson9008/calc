@@ -11,10 +11,13 @@ text-align: center;
 
 #mainContainer{
     text-align: center;
-    display: flex;
+    /*display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     /*justify-content: center;*/
+    display: grid;
+    align-content: center;
+    justify-content: stretch;
     align-self: center;
     border: 2px solid sandybrown;
     background-color: dimgrey;
@@ -29,9 +32,11 @@ text-align: center;
 input[type=button] {
     background-color: #3D3D3D;
     color: azure;
-    padding: 35px;
+    padding: 30px;
     border-radius: 10px;
     font-size: 30px;
+    width: 15%;
+    text-align: center;
     
 }
 
@@ -46,6 +51,8 @@ input[type=button]:hover {
     width: 470px;
     height: 30px;
     margin-top: 10px;
+    margin-left: 8px;
+    margin-right: 5px;
     background-color: #3D3D3D;
     color: azure;
     /*margin-top: 8px;
@@ -53,19 +60,7 @@ input[type=button]:hover {
     margin-left: 8px;*/
 }
 
-#CalcS {
-    max-width: fit-content;
-    align-self: center;
+.lastRow {
+    margin-top: -5px;
     margin-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    /*margin-top: -20px;*/
-}
-
-#ClearScreen {
-    max-width: fit-content;
-    align-self: center;
-    margin-bottom: 8px;
-    padding-left: 20px;
-    padding-right: 20px;
 }

@@ -94,7 +94,7 @@ function handle (event) {
         else{calcStorage.secondNum += value; displayScreen.value += value;}
     break;
         default:
-            if ((calcStorage.firstOP === "") && (value === "0")){
+            if ((calcStorage.firstOP === "") && (value === "0")){alert("error")
                 }
             if (calcStorage.firstOP === ""){calcStorage.firstNum += value;
                 displayScreen.value += value;
