@@ -11,6 +11,17 @@ text-align: center;
 color:#3D3D3D;
 }
 
+footer {
+    color: azure;
+    text-align: center;
+    background-color: #3D3D3D;
+    position: fixed;
+    padding: 30px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
 #mainContainer{
     text-align: center;
     /*display: flex;
