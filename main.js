@@ -147,7 +147,7 @@ function addOP(a, b){
     
 };
 
-console.log(addOP(1,2));
+/*console.log(addOP(1,2));*/
 
 //subtraction
 function subOP(a, b){
@@ -155,7 +155,7 @@ function subOP(a, b){
     return subTotal;
 };
 
-console.log(subOP(9,4));
+/*console.log(subOP(9,4));*/
 
 //multiplication
 function multiOP(a, b){
@@ -163,7 +163,7 @@ function multiOP(a, b){
     return multiTotal;
 };
 
-console.log(multiOP(6,6));
+/*console.log(multiOP(6,6));*/
 
 //division
 function divideOP(a, b){
@@ -171,7 +171,7 @@ function divideOP(a, b){
     return divideTotal;
 };
 
-console.log(divideOP(30,2));
+/*console.log(divideOP(30,2));*/
 
 
 //function that decides what operation to call
