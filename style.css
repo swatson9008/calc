@@ -13,12 +13,12 @@ text-align: center;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /*justify-content: center;*/
     align-self: center;
     border: 2px solid sandybrown;
     background-color: dimgrey;
-    max-width: fit-content;
+    max-width: 500px;
+    min-height: 500px;
     margin: auto;
     border-radius: 5px;
     box-shadow: 5px 5px #3D3D3D;
@@ -28,6 +28,8 @@ text-align: center;
 input[type=button] {
     background-color: #3D3D3D;
     color: azure;
+    padding: 40px;
+    
     
 }
 
@@ -37,19 +39,26 @@ input[type=button]:hover {
 }
 
 #displayNum {
-    margin-top: 8px;
+    text-align: right;
+    width: 490px;
+    /*margin-top: 8px;
     margin-right: 8px;
-    margin-left: 8px;
+    margin-left: 8px;*/
 }
 
 #CalcS {
     max-width: fit-content;
     align-self: center;
     margin-bottom: 10px;
+    padding-left: 210px;
+    padding-right: 210px;
+    margin-top: -10px;
 }
 
 #ClearScreen {
     max-width: fit-content;
     align-self: center;
     margin-bottom: 8px;
+    padding-left: 198px;
+    padding-right: 198px;
 }
