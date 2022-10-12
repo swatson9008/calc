@@ -12,6 +12,7 @@ let output;
 let outputS;
 let outputFinal;
 let outputF;
+let sliceD;
 
 //Calculate Listeners
 
@@ -23,6 +24,12 @@ calcB.addEventListener("click", calcArray);
 ClearS = document.getElementById("ClearScreen");
 ClearS.addEventListener("click", ClearScreens);
 ClearS.addEventListener("keyup", ClearScreens);
+
+//Backspace Listeners
+
+BackS = document.getElementById("BackSpace");
+BackS.addEventListener("click", GoBack);
+BackS.addEventListener("keyup", GoBack);
 
 ///Object to Store Numbers and Operators
 
@@ -87,6 +94,8 @@ function handle (event) {
         else{calcStorage.secondNum += value; displayScreen.value += value;}
     break;
         default:
+            if ((calcStorage.firstOP === "") && (value === "0")){
+                }
             if (calcStorage.firstOP === ""){calcStorage.firstNum += value;
                 displayScreen.value += value;
             }
@@ -200,6 +209,7 @@ function operate(a, b, c){
     return outputS;
 }
 
+//function that clears screen
 function ClearScreens(){
     displayScreen.value = "";
     calcStorage = {
@@ -209,3 +219,17 @@ function ClearScreens(){
         secondOP: "",
     };
 }
+
+//function that erases the last value entered
+
+function GoBack (){
+    displayScreen.value = displayScreen.value.substring(0, displayScreen.value.length - 1);
+    if (calcStorage.firstOP === "")
+    {calcStorage.firstNum = calcStorage.firstNum.slice(0, -1)}
+    else if (calcStorage.secondNum === "")
+    {calcStorage.firstOP = calcStorage.firstOP.slice(0, -1)}
+    else (calcStorage.secondNum = calcStorage.secondNum.slice(0, -1))
+    console.log(calcStorage);
+
+}
+
