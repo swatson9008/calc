@@ -1,12 +1,14 @@
 
 body {
-    background-color: darkslateblue;
+    background-color: azure;
+    background-image: url("background.jpg");
     color: white;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 h1 {
 text-align: center;
+color:#3D3D3D;
 }
 
 #mainContainer{
@@ -19,7 +21,7 @@ text-align: center;
     align-content: center;
     justify-content: stretch;
     align-self: center;
-    border: 2px solid sandybrown;
+    border: 6px solid rgb(175, 175, 175);
     background-color: dimgrey;
     max-width: 500px;
     min-height: 500px;
@@ -62,5 +64,5 @@ input[type=button]:hover {
 
 .lastRow {
     margin-top: -5px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
