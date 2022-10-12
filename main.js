@@ -93,9 +93,18 @@ function handle (event) {
         else if (calcStorage.firstOP === ""){calcStorage.firstNum += value; displayScreen.value += value;}
         else{calcStorage.secondNum += value; displayScreen.value += value;}
     break;
-        default:
-            if ((calcStorage.firstOP === "") && (value === "0")){alert("error")
-                }
+    case "0": 
+        if ((calcStorage.firstNum === ""))
+        {value = ""}
+        else if ((calcStorage.firstOP != "") && (calcStorage.secondNum === ""))
+        {value = ""}
+        else if (calcStorage.firstOP === ""){calcStorage.firstNum += value;
+            displayScreen.value += value;
+        }
+        else {calcStorage.secondNum += value;
+            displayScreen.value += value;}
+    break;
+    default:
             if (calcStorage.firstOP === ""){calcStorage.firstNum += value;
                 displayScreen.value += value;
             }
